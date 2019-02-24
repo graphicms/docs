@@ -1,0 +1,3 @@
+The package makes use of [spatie/typed](https://github.com/spatie/typed) package to make sure `$attributes` variable gets the right parameters and types (so you cannot pass a boolean where the system expects an array and so on).
+
+If you do not provide a typeNames option, GraphiCMS will follow to following convention to register derived types from you type: `${typeName}Type`, `${typeName}Union`, `${typeName}Collection.` If you register the type `User`, the following GraphQL types will be registered: `UserType, UserUnion, UserCollection`.
