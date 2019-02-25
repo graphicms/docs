@@ -25,6 +25,19 @@ We will need to do the following steps:
 
 The great thing about this example is that we will use models that extend `\Graphicms\Cms\Models\BaseModel` class and that is using a MongoDB connection. This way, we will not have to build migrations or complicated database architecture, we will use NoSQL and MongoDB will take care of your schema.
 
+## Github & Package of demo
+This demo has been packaged as a standalone plugin on Github: [filipac/graphi-demo-graphql-todos](https://github.com/filipac/graphi-demo-graphql-todos).
+
+To add all this functionality in your app you just require it in you app:
+
+`composer require filipac/graphi-demo-graphql-todos`
+
+After this, Laravel will detect the package and you will have all the above functionality in your app automatically.
+
+:::tip
+Laravel will auto discover this package if you have php artisan package:discover in your composer.json file. If you removed it from composer.json file, be sure to run it manually.
+:::
+
 ## Step by Step Code
 ### Create models
 
@@ -770,16 +783,3 @@ class ExampleServiceProvider extends ServiceProvider
     }
 }
 ```
-
-## Github & Package of demo
-This demo has been packaged as a standalone plugin on Github: [filipac/graphi-demo-graphql-todos](https://github.com/filipac/graphi-demo-graphql-todos).
-
-To add all this functionality in your app you just require it in you app:
-
-`composer require filipac/graphi-demo-graphql-todos`
-
-After this, Laravel will detect the package and you will have all the above functionality in your app automatically.
-
-:::tip
-Laravel will auto discover this package if you have php artisan package:discover in your composer.json file. If you removed it from composer.json file, be sure to run it manually.
-:::
