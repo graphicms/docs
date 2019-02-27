@@ -25,6 +25,11 @@ We will need to do the following steps:
 
 The great thing about this example is that we will use models that extend `\Graphicms\Cms\Models\BaseModel` class and that is using a MongoDB connection. This way, we will not have to build migrations or complicated database architecture, we will use NoSQL and MongoDB will take care of your schema.
 
+:::tip
+### Loader instead of Service Provider
+We could build this without a Service Provider, by creating a file in app/Graphi folder named ***Loader.php**, but we are making this as a "plugin" that could be re-used in other packages. Loaders are great for local code, project-scoped. [Read more about loaders](/guide/Core-Concepts.html#what-if-i-do-not-want-to-use-service-providers-for-registering-code)).
+:::
+
 ## Github & Package of demo
 This demo has been packaged as a standalone plugin on Github: [filipac/graphi-demo-graphql-todos](https://github.com/filipac/graphi-demo-graphql-todos).
 

@@ -44,6 +44,30 @@ Schemas are by default accessible using the following route: `/graphi/api/{schem
 
 In a nutshell, schemas are a collection of types, mutations and queries. Everything but types are scoped to a schema. Types are defined once and can be used in any schema.
 
+:::tip
+### What if I do not want to use Service Providers for registering code?
+<a name="graphi-loaders"></a>
+GraphiCMS is configured to look into your app folder if there are files named **Graphi/*Loader.php**. If there is one, it will autoload it using the DI Container (which means you can typehint any dependencies that you need and Laravel will inject those.
+
+```php
+<?php
+// app/Graphi/MyLoader.php
+namespace App\Graphi\MyLoader.php;
+use Illuminate\Contracts\Foundation\Application;
+use Graphicms\GraphQL\Events\ServingGraphQL;
+
+class MyLoader {
+    public function __construct(Application $app) {
+        $app->make('events')->listen(ServingGraphQL::class, function() {
+            // here you would register your custom things.
+        })
+    }
+}
+```
+
+You can have as many Loaders as you want, GraphiCMS will load all of them.
+:::
+
 ## Types
 
 As you might already know, GraphQL is strongly-typed. This means that every field must have a type. This way, you know  that the response from the GraphQL endpoint will have a certain structure.
